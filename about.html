@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>About | Quizzlet</title>
+<style>
+    :root {
+      --primary: #ff4e50;
+      --secondary: #f9d423;
+      --text-dark: #222;
+      --text-light: #fff;
+      --font: 'Poppins', sans-serif;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: var(--font);
+    }
+
+    body {
+      background: linear-gradient(to right, #ffe259, #ffa751);
+      color: var(--text-dark);
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    nav {
+      background: var(--primary);
+      padding: 20px 40px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .logo {
+      font-size: 2rem;
+      color: var(--text-light);
+      font-weight: bold;
+      text-decoration: none;
+    }
+
+    nav ul {
+      list-style: none;
+      display: flex;
+      gap: 20px;
+    }
+
+    nav ul li a {
+      color: var(--text-light);
+      text-decoration: none;
+      font-weight: 500;
+    }
+
+    .about-container {
+      max-width: 900px;
+      margin: 50px auto;
+      background: white;
+      padding: 40px;
+      border-radius: 15px;
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+      animation: fadeIn 0.6s ease;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .about-container h1 {
+      text-align: center;
+      font-size: 2.5rem;
+      margin-bottom: 20px;
+      color: var(--primary);
+    }
+
+    .about-container p {
+      font-size: 1.1rem;
+      line-height: 1.7;
+      color: #444;
+    }
+
+    footer {
+      text-align: center;
+      padding: 20px;
+      background: var(--primary);
+      color: white;
+      margin-top: auto;
+    }
+</style>
+</head>
+<body>
+  <nav>
+    <a class="logo" href="homepage.html">Quizzlet</a>
+    <ul>
+      <li><a href="homepage.html">Home</a></li>
+      <li><a href="DisplayQuizzes.html">Quizzes</a></li>
+      <li><a href="about.html">About</a></li>
+    </ul>
+  </nav>
+
+  <div class="about-container">
+    <h1>About Quizzlet</h1>
+    <p>
+      Quizzlet is a fun and interactive quiz platform designed to make learning exciting for high school students. Whether you're brushing up on math, exploring science, revisiting history, or testing your language skills Quizzlet provides quick, engaging quizzes that help reinforce knowledge in a playful way.
+    </p>
+    <br />
+    <p>
+      Built with modern web technologies, Quizzlet offers:
+      <ul>
+        <li>🎯 Real-time feedback and progress tracking</li>
+        <li>🎨 A colorful and friendly interface</li>
+        <li>🛠️ Customizable quiz creation (coming soon!)</li>
+        <li>📚 A growing collection of quizzes in various subjects</li>
+      </ul>
+    </p>
+    <br />
+    <p>
+      Whether you're prepping for an exam or just having fun with friends, Quizzlet is here to make your study time more enjoyable and effective. Let's make learning playful & powerful! 💡
+    </p>
+  </div>
+
+  <footer>
+    &copy; 2025 Quizzlet. All rights reserved.
+  </footer>
+</body>
+</html>

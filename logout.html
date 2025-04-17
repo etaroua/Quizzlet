@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Quizzlet | Logged Out</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <style>
+    :root {
+      --primary: #ff4e50;
+      --secondary: #f9d423;
+      --text-dark: #222;
+      --text-light: #fff;
+      --font: 'Poppins', sans-serif;
+    }
+
+    body {
+      margin: 0;
+      font-family: var(--font);
+      background: linear-gradient(to right, #ffe259, #ffa751);
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      text-align: center;
+    }
+
+    h1 {
+      color: var(--primary);
+      font-size: 2.5rem;
+      animation: bounce 1.2s infinite alternate;
+    }
+
+    p {
+      font-size: 1.1rem;
+      color: #333;
+      margin-top: 10px;
+    }
+
+    .button {
+      margin-top: 20px;
+      padding: 12px 28px;
+      background: var(--primary);
+      color: white;
+      border: none;
+      border-radius: 8px;
+      font-size: 1rem;
+      cursor: pointer;
+      transition: background 0.3s;
+      text-decoration: none;
+    }
+
+    .button:hover {
+      background: #e03e45;
+    }
+
+    @keyframes bounce {
+      0% { transform: translateY(0); }
+      100% { transform: translateY(-5px); }
+    }
+  </style>
+</head>
+<body>
+
+  <h1>You’ve been logged out 👋</h1>
+  <p>Thank you for using Quizzlet. We hope you had fun!</p>
+
+  <a href="login.php" class="button">Log In Again</a>
+  
+  <!-- New Homepage Button -->
+  <a href="homepage.html" class="button">Go to Homepage</a>
+
+</body>
+</html>

@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Quizzlet | Feedback</title>
+<style>
+    :root {
+      --primary: #ff4e50;
+      --secondary: #f9d423;
+      --success: #4caf50;
+      --error: #f44336;
+      --neutral: orange;
+      --text-dark: #222;
+      --text-light: #fff;
+      --font: 'Poppins', sans-serif;
+    }
+
+    body {
+      font-family: var(--font);
+      margin: 0;
+      background: linear-gradient(135deg, #ffe259, #ffa751);
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
+    }
+
+    nav {
+      background: var(--primary);
+      padding: 20px 40px;
+      color: var(--text-light);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    nav .logo {
+      font-size: 1.8rem;
+      font-weight: bold;
+      text-decoration: none;
+      color: var(--text-light);
+    }
+
+    main {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 40px 20px;
+    }
+
+    h1 {
+      font-size: 2.5rem;
+      color: var(--primary);
+      animation: shake 0.5s infinite alternate;
+    }
+
+    @keyframes shake {
+      0% { transform: rotate(-2deg); }
+      100% { transform: rotate(2deg); }
+    }
+
+    .score-box {
+      margin-top: 30px;
+      padding: 25px 40px;
+      border-radius: 12px;
+      color: white;
+      font-size: 2rem;
+      font-weight: bold;
+      text-align: center;
+    }
+
+    .score-box.green {
+      background-color: var(--success);
+    }
+
+    .score-box.red {
+      background-color: var(--error);
+    }
+
+    .score-box.orange {
+      background-color: var(--neutral);
+    }
+
+    .message {
+      margin-top: 25px;
+      font-size: 1.2rem;
+      color: #444;
+      text-align: center;
+    }
+
+    .note {
+      margin-top: 30px;
+      font-size: 1rem;
+      color: #333;
+      font-style: italic;
+      text-align: center;
+      max-width: 600px;
+    }
+	.feedback-buttons {
+      margin-top: 30px;
+      text-align: center;
+    }
+
+    .feedback-buttons button {
+      padding: 12px 24px;
+      font-size: 1rem;
+      background: var(--primary);
+      color: white;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: background 0.3s;
+    }
+
+    .feedback-buttons button:hover {
+      background: #e03e45;}
+
+    footer {
+      text-align: center;
+      padding: 20px;
+      background: var(--primary);
+      color: white;
+    }
+  </style></head>
+<body>
+  <nav>
+    <a href="homepage.html" class="logo">Quizzlet</a>
+  </nav>
+
+
+  <main>
+    <h1>Quiz Feedback</h1>
+    <div class="score-box" id="score-box">Loading...</div>
+    <div class="quiz-name" id="quiz-name"></div>
+    <div id="message" class="message"></div>
+    <div id="note" class="note"></div>
+    <div class="feedback-buttons">
+      <button onclick="window.location.href='DisplayQuizzes.html'">Try Another Quiz</button>
+      <button onclick="window.location.href='homepage.html'">Go to Home</button>
+    </div>
+  </main>
+
+  <footer>
+    Let’s make learning playful & powerful 💡
+  </footer>
+
+  <script>
+    const scoreBox = document.getElementById("score-box");
+    const messageEl = document.getElementById("message");
+    const noteEl = document.getElementById("note");
+    const quizNameEl = document.getElementById("quiz-name");
+
+    const score = parseInt(localStorage.getItem("quizScore"));
+    const total = parseInt(localStorage.getItem("quizTotal"));
+    const quizName = localStorage.getItem("quizName");
+
+    if (isNaN(score) || isNaN(total)) {
+      scoreBox.textContent = "No quiz result found.";
+      scoreBox.style.backgroundColor = "gray";
+    } else {
+      const percentage = (score / total) * 100;
+      scoreBox.textContent = `${score} out of ${total}`;
+      quizNameEl.textContent = `You completed the "${quizName.charAt(0).toUpperCase() + quizName.slice(1)}" quiz!`;
+
+      if (percentage > 50) {
+        scoreBox.classList.add("green");
+      } else if (percentage === 50) {
+        scoreBox.classList.add("orange");
+      } else {
+        scoreBox.classList.add("red");
+      }
+
+      if (percentage >= 90) {
+        messageEl.textContent = "Excellent work! You’re on fire! 🔥";
+        noteEl.innerHTML = "<strong>You’re an excellent student. Keep it up!</strong>";
+      } else if (percentage >= 70) {
+        messageEl.textContent = "Great job! Keep going! 🌟";
+        noteEl.innerHTML = "You’re doing really well—just a bit more to reach the top!";
+      } else if (percentage >= 50) {
+        messageEl.textContent = "Nice effort! A bit more practice and you’ll improve! ✨";
+        noteEl.innerHTML = "You're getting there! Keep practicing and trying again.";
+      } else {
+        messageEl.textContent = "Keep trying! Don’t give up! 💪";
+        noteEl.innerHTML = "Failure is a step to success. Come back stronger!";
+      }
+
+      noteEl.innerHTML += "<br><br><strong>Note: Cheating is not allowed. Be honest!</strong>";
+    }
+  </script>
+</body>
+</html>
